@@ -1,0 +1,32 @@
+.book-create{
+    background: lightsteelblue;
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    margin: auto;
+    min-height: 10rem;
+    max-width: 300px;
+    min-width: 200px;
+    flex-direction: column;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+.input-book-name,.btn-create{
+    min-height: 40px;
+    border: 0;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+.input-book-name{
+    font-size: 16px;
+    outline: none;
+    font-style: italic;
+}
+.btn-create{
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    text-transform: capitalize;
+}
