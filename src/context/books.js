@@ -1,3 +1,4 @@
+import React from 'react';
 import { createContext, useCallback, useState } from "react";
 import axios from 'axios';
 
@@ -7,30 +8,30 @@ function Provider({children}){
     const [books,setBooks]=useState([]);
 
     const fetchBooks=useCallback( async ()=>{
-        const response=await axios.get("http://localhost:3001/books");
+        const response=await axios.get("/api/books");
         setBooks(response.data);
       },[])
 
-      const createBook= async (title)=>{
-        const response=await axios.post("http://localhost:3001/books",{
-           title
+      const createBook= async (title, author)=>{
+        const response=await axios.post("/api/books",{
+           title,author
          })
          const updateBooks=[...books,response.data];
          setBooks(updateBooks);
        }
      
        const deleteById=async(id)=>{
-         await axios.delete(`http://localhost:3001/books/${id}`)
+         await axios.delete(`/api/books/${id}`)
          const updatedBooksAfterDelete=books.filter((book)=>{
            return book.id!==id;
          })
          setBooks(updatedBooksAfterDelete);
        }
      
-       const EditById=async (id,newTitle)=>{
+       const EditById=async (id,newTitle,newAuthor)=>{
          console.log(id,"now called after edit")
-         const response= await axios.put(`http://localhost:3001/books/${id}`,
-         {title:newTitle});
+         const response= await axios.put(`/api/books/${id}`,
+         {title:newTitle, author:newAuthor});
      
          const updateBookAfterEdit=books.map((book)=>{
            if(book.id===id){
