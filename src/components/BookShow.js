@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from "react";
 import "../css/bookList.css";
 import BookEdit from "./BookEdit";
@@ -19,12 +20,12 @@ function BookShow({book}){
         setShowEdit(false);
     }
 
-    return <div className="book-show">
+    return <div className="book-show ">
         {showEdit && <BookEdit onSubmit={handleSubmitEdit} book={book}/>}
        
         {!showEdit && 
-        <div>
-            <img src={`https://picsum.photos/seed/${book.id}/300/300`} alt="book images"/>
+        <div className="">
+            <img src={`https://picsum.photos/seed/${book.id}/400/400`} alt="book images"/>
             <div className="row">
             <div className="book-title"> {book.title}</div>
             <div className="actions">
