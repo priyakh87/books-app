@@ -20,11 +20,14 @@ function BookShow({book}){
         setShowEdit(false);
     }
 
+    const showDetails=()=>{
+        
+    }
     return <div className="book-show ">
         {showEdit && <BookEdit onSubmit={handleSubmitEdit} book={book}/>}
        
         {!showEdit && 
-        <div className="">
+        <div className="" onClick={showDetails}>
             <img src={`https://picsum.photos/seed/${book.id}/300/300`} alt="book images"/>
             <div className="row">
             <div className="book-title"> {book.title}</div>
