@@ -6,7 +6,10 @@ import useBooksContext from "../hooks/use-books-context";
 function BookList(){
 
     const {books}=useBooksContext();
-
+    if (!books || books.length === 0) {
+        return null;
+    }
+    
     return <div className="book-list container">
         {books.map((book,index)=>{
          return   <BookShow key={index} book={book}  />
