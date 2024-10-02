@@ -4,7 +4,7 @@ const { Sequelize } = require('sequelize');
 const models = require('./models');  // Using models/index.js
 const booksRoutes = require('./routes/books');
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 4000;
 
 // Middleware
 app.use(cors());

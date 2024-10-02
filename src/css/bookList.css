@@ -6,19 +6,25 @@
     margin: auto ;
 }
 .book-show{
-    box-shadow: 0px 1px 4px gray;
+    /* box-shadow: 0px 1px 4px gray; */
     height: auto;
-    min-height: 10rem;
+    /* min-height: 10rem; */
     padding: 0px;
     align-items: center;
     display: flex;
-    min-width: 150px;
-    max-width: 400px;
+    /* min-width: 150px;
+    max-width: 400px; */
     margin: 24px;
     flex-direction: column;
     justify-content: center;
-    border-radius: 4px;
-    border: 1px solid #f1f1f1;
+    /* border-radius: 4px;
+    border: 1px solid #f1f1f1; */
+}
+.link{
+    cursor: pointer;
+}
+.link:hover{
+    transform: scale(1.1);
 }
 .book-list{
     display: flex;

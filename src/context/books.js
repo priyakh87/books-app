@@ -8,8 +8,11 @@ function Provider({ children }) {
 
   const fetchBooks = useCallback(async () => {
     try {
+      console.log(process.env.REACT_APP_API_BASE_URL)
       const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/books`);
       setBooks(response.data);
+      console.log(response.data);
+      
     } catch (error) {
       console.error('Error fetching books:', error);
     }
@@ -60,14 +63,8 @@ function Provider({ children }) {
   const getBookById =useCallback(async (id) => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/books/${id}`);
+      console.log(response.data);
       return response.data;
-      // const updatedBookAfterEdit = books.map((book) => {
-      //   if (book.id === id) {
-      //     return { ...book, ...response.data };
-      //   }
-      //   return book;
-      // });
-      // setBooks(response.data);
     } catch (error) {
       console.error('Error editing book:', error);
     }
