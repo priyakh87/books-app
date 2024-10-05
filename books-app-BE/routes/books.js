@@ -58,17 +58,18 @@ router.put("/:id", async (req, res) => {
 
 // deleter book
 router.delete("/:id", async (req, res) => {
-    try{
-            const bookIndex = Book.findByPk(req.params.id);
-            if (bookIndex !== -1) {
-                await bookIndex.destroy();
-                res.json({message:'Boom deleted'});
-            } else {
-                res.status("404").send(`book you selected to delete can't be deleted`);
-            }
-        }catch (error) {
-            res.status(500).send('error deleting book');
-        }
+  try {
+    const bookIndex = await Book.findByPk(req.params.id);
+
+    if (bookIndex) {
+      await bookIndex.destroy();
+      res.json({ message: "Boom deleted" });
+    } else {
+      res.status("404").send(`book you selected to delete can't be deleted`);
+    }
+  } catch (error) {
+    res.status(500).send("error deleting book");
+  }
 });
 
 module.exports = router;

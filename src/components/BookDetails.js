@@ -55,7 +55,7 @@ function BookDetail() {
           <div className="actions">
             <button className="read" onClick={handleShow}>Read</button>
             <button className="cart">Add to cart</button>
-            <button className="share"><i class="ri-share-line"></i></button>
+            <button className="share"><i className="ri-share-line"></i></button>
           </div>
         </div>
       </div>

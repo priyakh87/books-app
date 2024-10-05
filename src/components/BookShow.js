@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {  Button } from 'react-bootstrap';
 import BookEdit from './BookEdit';
-import useBooksContext from '../hooks/use-books-context';
+import BookDelete from './BookDelete';
+// import useBooksContext from '../hooks/use-books-context';
 import '../css/bookList.css';
 
 function BookShow({ book }) {
-  const { deleteById } = useBooksContext();
+//   const { deleteById } = useBooksContext();
   const [showEdit, setShowEdit] = useState(false);
-
+const [showDelete, setShowDelete] = useState(false);
 
 
   // Function to handle showing the modal
@@ -16,7 +17,8 @@ function BookShow({ book }) {
 
   // Handle delete operation
   const handleDelete = () => {
-    deleteById(book.id);
+      // deleteById(book.id);
+      setShowDelete(true);
   };
 
   // Handle submit of edit form
@@ -24,23 +26,30 @@ function BookShow({ book }) {
     setShowEdit(false);
   };
 
+    const handleSubmitDelete = () => {
+        setShowDelete(false);
+    }
   return (
       <div>
           {showEdit && <BookEdit onSubmit={handleSubmitEdit} book={book} showEdit={showEdit} setShowEdit={setShowEdit}  />}
-       
-          {!showEdit &&
-              <div className="book-show">
-                  <div className="card">
+    
+          {showDelete && <BookDelete onSubmit={handleSubmitDelete} book={book} showDelete={showDelete} setShowDelete={setShowDelete} />}
+              
+          <div className="book-show">
+                  <div className="card card-list">
                       {/* Link to the detailed view of the book */}
-                      <Link className="link" to={`/books/${book.id}`}>
-                          <img
-                              src={`https://picsum.photos/seed/${book.title}/300/300`}
+                      <Link className="link mt-4" to={`/books/${book.id}`}>
+                          <img 
+                              src={`https://picsum.photos/seed/${book.title}/200/200`}
                               alt={book.title}
                           />
                       </Link>
                       <div className="row">
-                          <Link className="link" to={`/books/${book.id}`}>
+                          <Link className="link link-title" to={`/books/${book.id}`}>
                               <div className="book-title"> {book.title}</div>
+                          </Link>
+                          <Link className="link link-author" to={`/books/${book.id}`}>
+                              <div className="book-author"><span className='text-primary'>by &nbsp;</span> {book.author}</div>
                           </Link>
                           <div className="actions">
                               {/* Edit button to open modal */}
@@ -54,22 +63,9 @@ function BookShow({ book }) {
                           </div>
                       </div>
                   </div>
-              </div>}
-
-      {/* Modal for editing book */}
-      {/* <Modal show={showEdit} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Edit Book</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <BookEdit onSubmit={handleSubmitEdit} book={book} />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal> */}
+          </div>
+          
+     
     </div>
   );
 }

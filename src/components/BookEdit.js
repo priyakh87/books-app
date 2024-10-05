@@ -34,10 +34,15 @@ function BookEdit({onSubmit,book,showEdit,setShowEdit}){
           <Modal.Title>Edit Book</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-                    <form onSubmit={handleEditSubmit}>
-                    <input name="newTitle" onChange={handleOnChange} value={newTitle} />
-                    <input name="newAuthor" onChange={handleOnChange} value={newAuthor} />
-                    </form>
+                <form onSubmit={handleEditSubmit}>
+                    <div className='mb-3'>
+                    <input className='form-control' name="newTitle" onChange={handleOnChange} value={newTitle} />
+                    </div>
+                    <div className='mb-3'>
+                    <input className='form-control' name="newAuthor" onChange={handleOnChange} value={newAuthor} />
+                    
+                    </div>
+                     </form>
         </Modal.Body>
             <Modal.Footer>
             <Button variant='primary'  onClick={handleEditSubmit}>Save</Button>

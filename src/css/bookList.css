@@ -1,20 +1,33 @@
 .row{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 .container{
     margin: auto ;
+}
+.main-page{
+    background: #f1f1f1;
+}
+.w-33{
+    max-width: 33%;
+}
+.w-card{
+    max-width:22%;
+}
+.card.card-list{
+    background-color: #fefbf8ed;
+    max-width: 299px;
 }
 .book-show{
     /* box-shadow: 0px 1px 4px gray; */
     height: auto;
     /* min-height: 10rem; */
-    padding: 0px;
+    padding:4px;
     align-items: center;
     display: flex;
     /* min-width: 150px;
     max-width: 400px; */
-    margin: 24px;
+    margin:12px;
     flex-direction: column;
     justify-content: center;
     /* border-radius: 4px;
@@ -22,9 +35,18 @@
 }
 .link{
     cursor: pointer;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
 }
-.link:hover{
-    transform: scale(1.1);
+
+.link-title:hover{
+    font-style:italic;
+    color: #333;
+    text-decoration: underline;
+    transform: scaleY(1.15);
+
 }
 .book-list{
     display: flex;
@@ -34,10 +56,30 @@
     justify-content: center;
 }
 .book-title{
-    font: 16px sans-serif;
-    margin: 12px;
+    font: 14px sans-serif;
+    margin: 12px 12px;
+    display: flex;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    
 }
-
+.book-author{
+    font: 12px sans-serif;
+    margin: 4px 12px;
+    display: flex;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: #333;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: left;
+}
 .actions{
     
     display: inline-flex;
@@ -53,5 +95,52 @@
 }
 button.btn-delete{
     background-color: black;
-color: #fff;
+    color: #fff;
+}
+.btn{
+    padding: 8px 16px !important;
+}
+.btn-primary{
+    background-color: #fff !important;
+    border: 1px solid #333 !important;
+    color: #000 !important;
+}
+.btn-primary:hover{
+    color: #fff !important;
+    border: 1px solid #333 !important;
+    background-color: #000 !important;
+}
+
+.btn-dark:hover{
+    background-color: #fcfcfc !important;
+    border: 1px solid #333 !important;
+    color: #000 !important;
+}
+
+.actions{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+.btn-favorite i{
+    color: #000;
+    position: absolute;
+    bottom: 10px;
+    font-size: 18px;
+}
+.btn-favorite i.ri-heart-fill{
+    color: red;
+}
+.btn-favorite i.ri-heart-line{
+    background-color: white;
+}
+.list-card{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+}
+.list-card img{
+    width: 200px;
+    height: 200px;
 }

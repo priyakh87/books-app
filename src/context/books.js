@@ -31,15 +31,20 @@ function Provider({ children }) {
     }
   },[books]);
 
-  const deleteById =useCallback(async (id) => {
+  const deleteById = useCallback(async (id) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/books/${id}`);
-      const updatedBooksAfterDelete = books.filter((book) => book.id !== id);
-      setBooks(updatedBooksAfterDelete);
+      // Delete book via API
+      await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/api/books/${id}`);
+      
+      // Update state by filtering out the deleted book
+      setBooks((prevBooks) => prevBooks.filter((book) => book.id !== id));
+  
+      console.log(`Book with ID ${id} deleted successfully.`);
     } catch (error) {
       console.error('Error deleting book:', error);
+      // Optionally: Implement some error notification for users
     }
-  },[books]);
+  }, []);
 
   const EditById =useCallback(async (id, newTitle, newAuthor) => {
     try {

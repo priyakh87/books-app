@@ -1,5 +1,6 @@
 .card{
     background-color: #fefbf8ed;
+   
 }
 .item-img{
     display: block;
@@ -8,6 +9,7 @@
 .title{
     font-size: 32px;
     font-weight: 600;
+  
 }
 
 .author{
