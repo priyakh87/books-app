@@ -50,7 +50,7 @@ function SearchResults() {
               <div className='book-show card w-card' key={index}>
                 <div className=' list-card'>
                   <h3 className='book-title'>{book.volumeInfo.title}</h3>
-                  <h5 className='book-author'>
+                  <h5 className='book-author mb-2'>
                     {book.volumeInfo.authors
                       ? book.volumeInfo.authors.join(", ")
                       : "Unknown Author"}
@@ -61,7 +61,7 @@ function SearchResults() {
                       alt={book.volumeInfo.title}
                     />
                   ) : (
-                    <div className="no-img">No Image Available</div>
+                    <div className="no-img">Image not Available</div>
                   )}
                 </div>
                 <div className='actions'>

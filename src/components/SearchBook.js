@@ -47,6 +47,7 @@ function SearchBook() {
     const DynamicClass = scrolled ? 'fixed' : '';
 
     return (
+        <div className="search-content">
         <div className="w-100">
              <div >
             <form onSubmit={handleSearch}>
@@ -64,7 +65,8 @@ function SearchBook() {
                 </div>
                 </form>
                 </div>
-        </div>
+            </div>
+            </div>
     );
 }
 

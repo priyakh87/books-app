@@ -7,7 +7,7 @@ import useBooksContext from "../hooks/use-books-context";
 
 function BookEdit({onSubmit,book,showEdit,setShowEdit}){
     const {EditById}=useBooksContext();
-
+  
     const [newTitle,setnewTitle]=useState(book.title);
     const [newAuthor, setnewAuthor] = useState(book.author);
       // Function to handle closing the modal
@@ -23,9 +23,10 @@ function BookEdit({onSubmit,book,showEdit,setShowEdit}){
     }
     const handleEditSubmit=(event)=>{
         event.preventDefault();
-        EditById(book.id,newTitle,newAuthor);
+      EditById(book.id, newTitle, newAuthor);
         onSubmit();
-        handleClose()
+        handleClose();
+        
     }
 
     return <div >
@@ -51,13 +52,8 @@ function BookEdit({onSubmit,book,showEdit,setShowEdit}){
           </Button>
         </Modal.Footer>
       </Modal>
-        {/* <form onSubmit={handleEditSubmit}>
-            <input name="newTitle" onChange={handleOnChange} value={newTitle}/>
-            <div className='actions'>
-            <Button variant='primary'  onSubmit={handleEditSubmit}>Save</Button>
-            </div>
-            
-        </form> */}
+      
+      
     </div>
 }
 

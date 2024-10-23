@@ -1,3 +1,8 @@
+.search-content {
+    display: flex;
+    width: 100%;
+    margin-top: 50px;
+}
 .search{
     display: flex;
     align-items: center;
@@ -19,12 +24,12 @@
     
     display: flex;
     align-items: center;
-    position: fixed;
-    top: 0;
-    transform: translateY(-30px);
+    /* position: fixed; */
+    top: 00px;
+    transform: translateY(-10px);
     z-index: 999;
-    width: 70%;
-    /* max-width: 1200px; */
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 9.5px 12px 9.5px 16px;
     border-radius: 6px;
@@ -32,4 +37,5 @@
     background-color: var(--color-neutral-n02);
     border: .5px solid var(--color-neutral-n30);
     transition: transform .2s;
+    margin-top: -27px;
 }
